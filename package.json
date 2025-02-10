@@ -1,0 +1,23 @@
+{
+  "name": "telegram_bot",
+  "version": "1.0.0",
+  "description": "Dynamic bot for group Friends School",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanArroyaveGonzalez/Telegram_Bot.git"
+  },
+  "author": "Jonathan A",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanArroyaveGonzalez/Telegram_Bot/issues"
+  },
+  "homepage": "https://github.com/JonathanArroyaveGonzalez/Telegram_Bot#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "telegraf": "^4.16.3"
+  }
+}
