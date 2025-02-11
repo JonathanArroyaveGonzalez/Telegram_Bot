@@ -1,10 +1,7 @@
-process.removeAllListeners('warning'); // Añadir esta línea al inicio
-const { Telegraf } = require('telegraf')
-const { message } = require('telegraf/filters')
+const { Telegraf } = require('telegraf');
 require('dotenv').config();
 
-//const bot = new Telegraf(process.env.BOT_TOKEN)
-const bot = new Telegraf('7704677641:AAH45m2wnXKvc9btK5V4yfKcee13dWt0tz0')
+const bot = new Telegraf(process.env.BOT_TOKEN)
 
 const AppData = [
     { 
@@ -206,4 +203,33 @@ const AppData = [
     });
   });
 
-  bot.launch()
+// Configurar el webhook
+const webhook = process.env.NETLIFY_URL ? `${process.env.NETLIFY_URL}/.netlify/functions/bot` : '';
+if (webhook) {
+  bot.telegram.setWebhook(webhook);
+}
+
+exports.handler = async function(event, context) {
+  try {
+    if (event.httpMethod !== 'POST') {
+      return { 
+        statusCode: 405, 
+        body: JSON.stringify({ error: 'Method Not Allowed' })
+      };
+    }
+
+    const update = JSON.parse(event.body);
+    await bot.handleUpdate(update);
+    
+    return { 
+      statusCode: 200, 
+      body: JSON.stringify({ message: 'Success' })
+    };
+  } catch (error) {
+    console.error('Error:', error);
+    return { 
+      statusCode: 500, 
+      body: JSON.stringify({ error: 'Internal Server Error' })
+    };
+  }
+};

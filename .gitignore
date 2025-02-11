@@ -47,3 +47,7 @@ pids
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Additional directories
+.netlify
+dist
