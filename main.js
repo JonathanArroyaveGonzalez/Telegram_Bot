@@ -1,3 +1,4 @@
+process.removeAllListeners('warning'); // Añadir esta línea al inicio
 const { Telegraf } = require('telegraf')
 const { message } = require('telegraf/filters')
 require('dotenv').config();
@@ -203,4 +204,9 @@ const AppData = [
       reply_markup: { inline_keyboard: menu }
     });
   });
-  
+
+ //Launch the bot
+bot.launch().then(() => {
+  console.log("Logged as "+bot.context.botInfo.first_name)
+  //If it's shows your bot name, Then try execute /start Command, Enjoy!
+});
