@@ -1,10 +1,9 @@
-process.removeAllListeners('warning'); // Añadir esta línea al inicio
+//process.removeAllListeners('warning'); // Añadir esta línea al inicio
 const { Telegraf } = require('telegraf')
 const { message } = require('telegraf/filters')
 require('dotenv').config();
 
-//const bot = new Telegraf(process.env.BOT_TOKEN)
-const bot = new Telegraf('7704677641:AAH45m2wnXKvc9btK5V4yfKcee13dWt0tz0')
+const bot = new Telegraf(process.env.BOT_TOKEN)
 
 const AppData = [
     { 

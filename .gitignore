@@ -51,3 +51,4 @@ Thumbs.db
 # Additional directories
 .netlify
 dist
+functions-build

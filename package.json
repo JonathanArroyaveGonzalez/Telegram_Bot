@@ -1,11 +1,10 @@
 {
-  "name": "telegram-bot",
+  "name": "telegram_bot",
   "version": "1.0.0",
-  "description": "Telegram bot for Netlify",
-  "main": "functions/bot.js",
+  "description": "bot to manage friends school dynamics",
+  "main": "main.js",
   "scripts": {
-    "build": "netlify-lambda build functions",
-    "start": "netlify-lambda serve functions"
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +17,7 @@
   },
   "homepage": "https://github.com/JonathanArroyaveGonzalez/Telegram_Bot#readme",
   "dependencies": {
-    "dotenv": "^16.0.0",
-    "telegraf": "^4.15.0",
-    "netlify-lambda": "^2.0.15"
+    "dotenv": "^16.4.7",
+    "telegraf": "^4.16.3"
   }
 }
